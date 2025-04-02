@@ -6,7 +6,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer"); 
 const app = express();
 app.use(cors(
-  origin="https://e-project-beta.vercel.app/"
+  origin="https://e-project-frontend.vercel.app/"
 ));
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
