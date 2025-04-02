@@ -3,7 +3,7 @@ const create = express.Router();
 const schemaModel = require("../model/schema");
 const upload = require("../utility/multer");
 const employeeModel = require("../model/employee");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 
 // 🟢 Route for Uploading Data (with Image)
 create.post("/", upload.single("image"), async (req, res) => {
@@ -71,7 +71,7 @@ create.post("/register", async (req, res) => {
   }
 });
 
-// 🟢 Login Route (WITHOUT HASHING)
+
 create.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -90,7 +90,7 @@ create.post("/login", async (req, res) => {
     if (user.password !== password) {
       return res.status(401).json({ success: false, message: "Incorrect password." });
     }
-    res.json({ success: true, message: "Login successful!" });
+    res.json({ success: true, message: "Login successful!",data:user });
 
   } catch (error) {
     console.error("Login Error:", error);
